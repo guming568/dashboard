@@ -168,7 +168,7 @@
 }
 </style>
 
-</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>工作日报数据源（Worker）</label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">更新到文件</button></div></div><div class="tip">当前工作日报通过 Worker 自动读取 Google 表格。区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细会随着时间区间同步变化。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3>各工作内容结构占比</h3><div class="pie-wrap"><div class="pie" id="workPie"></div><div class="legend" id="workLegend"></div></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
+</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>工作日报（Google表自动同步）</label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">同步Google表</button></div></div><div class="tip">当前工作日报保持原版全部功能：区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细都会保留；数据源改为通过 Worker 自动同步 Google 表格。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3>各工作内容结构占比</h3><div class="pie-wrap"><div class="pie" id="workPie"></div><div class="legend" id="workLegend"></div></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
 <div class="kpi-day-board">
   <div class="kpi-day-shell">
     <div class="card kpi-day-card">
@@ -961,7 +961,7 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
     tips.forEach(tip => {
       const txt = tip.textContent || '';
       if(txt && !txt.includes('更新到文件')){
-        tip.textContent = txt + ' 当前工作日报使用 Worker 自动同步 Google 表格数据。';
+        tip.textContent = txt + ' 点击工作汇报里的“更新到文件”后，会生成一个把当前数据真正写进文件内部的新HTML。';
       }
     });
   });
@@ -1099,33 +1099,44 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
 (function(){
   const WORKER_CSV_URL = "https://damp-smoke-851b.guming568.workers.dev";
 
+  function toNum(v){
+    const n = Number(String(v ?? '0').replace(/,/g,''));
+    return Number.isFinite(n) ? n : 0;
+  }
+
   function mapWorkRows(rows){
     return rows.map(r => ({
       日期: normalizeDate(r['日期'] || r['date'] || ''),
-      找资料: Number(r['找资料'] || 0),
-      审帖数量: Number(r['审帖数量'] || 0),
-      普通贴数量: Number(r['普通贴数量'] || 0),
-      热点贴数量: Number(r['热点贴数量'] || 0),
-      专辑更新: Number(r['专辑更新'] || 0),
-      低质量文章处理: Number(r['低质量文章处理'] || 0),
-      资料分发数量: Number(r['资料分发数量'] || 0),
-      宣发图制作: Number(r['宣发图制作'] || 0),
-      外链制作: Number(r['外链制作'] || 0),
-      广告更换: Number(r['广告更换'] || 0),
-      外宣数量: Number(r['外宣数量'] || 0),
-      姓名: (r['姓名'] || '').trim()
+      姓名: String(r['姓名'] || '').trim(),
+      找资料: toNum(r['找资料']),
+      审帖数量: toNum(r['审帖数量']),
+      普通贴数量: toNum(r['普通贴数量']),
+      热点贴数量: toNum(r['热点贴数量']),
+      专辑更新: toNum(r['专辑更新']),
+      低质量文章处理: toNum(r['低质量文章处理']),
+      资料分发数量: toNum(r['资料分发数量']),
+      宣发图制作: toNum(r['宣发图制作']),
+      外链制作: toNum(r['外链制作']),
+      广告更换: toNum(r['广告更换']),
+      外宣数量: toNum(r['外宣数量'])
     })).filter(x => x.日期);
   }
 
-  async function loadWorkFromWorker(){
+  async function syncWorkFromWorker(){
     try {
       const res = await fetch(WORKER_CSV_URL + '?t=' + Date.now(), { cache: 'no-store' });
       const text = await res.text();
-      if(!text || text.includes('<html') || text.includes('<!DOCTYPE')) throw new Error('返回内容不是 CSV');
+
+      if(!text || /<html|<!doctype/i.test(text)) {
+        throw new Error('Worker 未返回 CSV');
+      }
 
       const rows = parseCSV(text);
       const mapped = mapWorkRows(rows).sort((a,b) => String(a.日期).localeCompare(String(b.日期)));
-      if(!mapped.length) throw new Error('没有有效数据');
+
+      if(!mapped.length) {
+        throw new Error('Google 表中没有有效工作日报数据');
+      }
 
       state.work = mapped;
       state.workSelected = mapped[mapped.length - 1].日期;
@@ -1134,40 +1145,36 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
         end: mapped[mapped.length - 1].日期
       };
 
-      const startEl = byId('workStart');
-      const endEl = byId('workEnd');
-      if(startEl) startEl.value = state.workRange.start;
-      if(endEl) endEl.value = state.workRange.end;
+      if(byId('workStart')) byId('workStart').value = state.workRange.start;
+      if(byId('workEnd')) byId('workEnd').value = state.workRange.end;
 
       const tip = document.querySelector('#workPage .tip');
-      if(tip){
-        tip.textContent = '当前工作日报样式保持原版，但数据源已改成 Worker 自动读取 Google 表格。刷新页面会同步最新数据。';
+      if(tip) {
+        tip.textContent = '当前工作日报已接入 Google 表格。样式和原功能保持不变，打开页面或点击“同步Google表”都会拉取最新数据。';
       }
 
       if(typeof renderWork === 'function') renderWork();
-    } catch (err) {
-      console.error(err);
+    } catch(err) {
+      console.error('syncWorkFromWorker error:', err);
       const tip = document.querySelector('#workPage .tip');
-      if(tip){
-        tip.textContent = '工作日报读取失败：请检查 Worker 地址或 Worker 代码是否已正确部署。';
+      if(tip) {
+        tip.textContent = '工作日报读取失败：请检查 Worker 是否已正确部署，或 Google 表格中是否有有效数据。';
       }
-    }
-  }
-
-  function bindRefreshToWorkButton(){
-    const btn = byId('workApply');
-    if(btn && !btn.dataset.workerBound){
-      btn.dataset.workerBound = '1';
-      btn.addEventListener('click', function(){
-        setTimeout(loadWorkFromWorker, 50);
-      });
     }
   }
 
   window.addEventListener('load', function(){
-    setTimeout(loadWorkFromWorker, 120);
-    setTimeout(loadWorkFromWorker, 900);
-    bindRefreshToWorkButton();
+    setTimeout(syncWorkFromWorker, 120);
+    setTimeout(syncWorkFromWorker, 900);
+
+    const btn = byId('workReset');
+    if(btn && !btn.dataset.workerSyncBound) {
+      btn.dataset.workerSyncBound = '1';
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        syncWorkFromWorker();
+      });
+    }
   });
 })();
 </script>

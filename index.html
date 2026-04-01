@@ -194,7 +194,7 @@
 }
 </style>
 
-</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>上传工作日报 CSV <input type="file" id="workFile" accept=".csv"></label><label>月份 <select id="workMonthSelect"><option value="2026-03">3月</option><option value="2026-04">4月</option></select></label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">更新到文件</button></div></div><div class="tip">字段：找资料、审帖数量、普通贴数量、热点贴数量、专辑更新、低质量文章处理、资料分发数量、宣发图制作、外链制作、广告更换、外宣数量。区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细会随着时间区间同步变化。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3 id="workMemberTitle">组员详细数据</h3><div class="list" id="workMemberDetails"></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
+</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>上传工作日报 CSV <input type="file" id="workFile" accept=".csv"></label><label>月份 <select id="workMonthSelect"><option value="2026-03">3月</option><option value="2026-04">4月</option></select></label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">更新到文件</button></div></div><div class="tip">字段：找资料、审帖数量、普通贴数量、热点贴数量、专辑更新、低质量文章处理、资料分发数量、宣发图制作、外链制作、广告更换、外宣数量。区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细会随着时间区间同步变化。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3 id="workMemberTitle">所有组员详细信息</h3><div class="pie-wrap" id="workPieWrap"><div class="pie" id="workPie"></div><div class="legend" id="workLegend"></div></div><div id="workMemberDetails"></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
 <div class="kpi-day-board">
   <div class="kpi-day-shell">
     <div class="card kpi-day-card">
@@ -1260,29 +1260,33 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
 </script>
 
 
-<style id="work-member-details-style">
+<style id="member-detail-style">
+#workPieWrap{
+  display:none !important;
+}
 #workMemberDetails{
   display:flex;
   flex-direction:column;
-  gap:10px;
-  max-height:420px;
+  gap:12px;
+  max-height:480px;
   overflow:auto;
 }
 #workMemberDetails .member-card{
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:12px 14px;
+  border-radius:18px;
+  padding:14px 16px;
   background:rgba(255,255,255,.03);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
 }
 #workMemberDetails .member-name{
-  font-size:16px;
+  font-size:18px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 #workMemberDetails .member-grid{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:8px 12px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px 18px;
 }
 #workMemberDetails .member-row{
   display:flex;
@@ -1299,7 +1303,7 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
 }
 @media (max-width: 900px){
   #workMemberDetails .member-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -1307,48 +1311,44 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
 (function(){
   const MEMBER_KEYS = ['普通贴数量','热点贴数量','宣发图制作','找资料','审帖数量','专辑更新','低质量文章处理','资料分发数量','外链制作','广告更换','外宣数量'];
 
-  function renderMemberDetailsForSelectedDay(){
-    const container = document.getElementById('workMemberDetails');
+  function renderMemberDetails(){
+    const wrap = document.getElementById('workMemberDetails');
     const title = document.getElementById('workMemberTitle');
-    if(!container || !title || !window.state) return;
+    if(!wrap || !title || !window.state) return;
 
     const selected = state.workSelected || state.workRange.end || state.workRange.start || '';
-    title.textContent = selected ? ('组员详细数据 · ' + dateText(selected)) : '组员详细数据';
+    title.textContent = selected ? ('所有组员详细信息 · ' + dateText(selected)) : '所有组员详细信息';
 
     if(!selected){
-      container.innerHTML = '<div class="row"><span>提示</span><strong>请选择日期</strong></div>';
+      wrap.innerHTML = '<div class="member-card"><div class="member-name">提示</div><div class="member-grid"><div class="member-row"><span>状态</span><strong>请先选择日期</strong></div></div></div>';
       return;
     }
 
     const rows = (state.work || []).filter(x => x.日期 === selected);
     if(!rows.length){
-      container.innerHTML = '<div class="row"><span>提示</span><strong>当天暂无组员数据</strong></div>';
+      wrap.innerHTML = '<div class="member-card"><div class="member-name">提示</div><div class="member-grid"><div class="member-row"><span>状态</span><strong>当天暂无组员数据</strong></div></div></div>';
       return;
     }
 
-    const html = rows.map(r => {
-      const name = r['姓名'] || '未填写姓名';
-      const grid = MEMBER_KEYS.map(k => {
-        return '<div class="member-row"><span>' + k + '</span><strong>' + fmt(r[k] || 0) + '</strong></div>';
-      }).join('');
-      return '<div class="member-card"><div class="member-name">' + name + '</div><div class="member-grid">' + grid + '</div></div>';
+    wrap.innerHTML = rows.map((r, idx) => {
+      const name = r['姓名'] || ('组员' + (idx + 1));
+      const items = MEMBER_KEYS.map(k => '<div class="member-row"><span>' + k + '</span><strong>' + fmt(r[k] || 0) + '</strong></div>').join('');
+      return '<div class="member-card"><div class="member-name">' + name + '</div><div class="member-grid">' + items + '</div></div>';
     }).join('');
-
-    container.innerHTML = html;
   }
 
   window.addEventListener('load', function(){
     setTimeout(function(){
-      if(typeof window.renderWork === 'function'){
+      if(typeof window.renderWork === 'function' && !window.__memberDetailHooked){
+        window.__memberDetailHooked = true;
         const oldRenderWork = window.renderWork;
         window.renderWork = function(){
           oldRenderWork();
-          renderMemberDetailsForSelectedDay();
+          renderMemberDetails();
         };
-        // run once after override
-        renderMemberDetailsForSelectedDay();
+        renderMemberDetails();
       }
-    }, 1600);
+    }, 1800);
   });
 })();
 </script>

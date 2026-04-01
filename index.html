@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WJ-运营三部一组看板</title>
+<style>
+  :root{
+    --bg:#0b1020;
+    --panel:#11192d;
+    --panel2:#0f1730;
+    --line:rgba(255,255,255,.08);
+    --text:#eef2ff;
+    --muted:#a9b2d0;
+    --accent:#58d5ff;
+    --accent2:#6df0b5;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;
+    color:var(--text);
+    background:radial-gradient(circle at top left,#172447 0,#0b1020 45%,#070b15 100%);
+  }
+  .wrap{
+    max-width:1200px;
+    margin:0 auto;
+    padding:24px;
+  }
+  .hero{
+    padding:22px 24px;
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:linear-gradient(180deg,rgba(18,26,46,.96),rgba(10,15,28,.98));
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    margin-bottom:18px;
+  }
+  h1{
+    margin:0 0 8px;
+    font-size:34px;
+    line-height:1.15;
+  }
+  .sub{
+    color:var(--muted);
+    font-size:15px;
+  }
+  .toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    margin:18px 0 10px;
+  }
+  .btn{
+    border:none;
+    border-radius:12px;
+    padding:12px 18px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    color:#04111f;
+    background:linear-gradient(135deg,#f7d8e5 0,#8ad8ff 52%,#66efb0 100%);
+  }
+  .tip{
+    color:var(--muted);
+    margin:10px 0 18px;
+    line-height:1.6;
+  }
+  .status{
+    margin:8px 0 18px;
+    padding:14px 16px;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+    border:1px solid var(--line);
+    color:var(--muted);
+  }
+  .summary{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .card{
+    background:linear-gradient(180deg,rgba(17,25,45,.96),rgba(10,14,25,.98));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .label{
+    color:#ffffff;
+    font-size:18px;
+    font-weight:800;
+    margin-bottom:10px;
+  }
+  .value{
+    font-size:42px;
+    font-weight:900;
+    line-height:1;
+  }
+  .small{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:13px;
+  }
+  .list{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+  }
+  .person{
+    background:linear-gradient(180deg,rgba(16,24,43,.95),rgba(10,14,25,.98));
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:16px;
+  }
+  .person h3{
+    margin:0 0 12px;
+    font-size:20px;
+  }
+  .row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .row:last-child{border-bottom:none}
+  .row span{color:var(--muted)}
+  @media (max-width:900px){
+    .summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .list{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>WJ-运营三部一组看板</h1>
+    <div class="sub">已接入 Google 表格，点击按钮即可读取最新数据。</div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn" onclick="loadData()">读取 Google 表数据</button>
+  </div>
+
+  <div class="tip">
+    这版是可直接部署到 GitHub Pages 的简化稳定版。打开页面后点击“读取 Google 表数据”，会从你的 Google 表格里读取工作日报数据并展示汇总。
+  </div>
+
+  <div id="status" class="status">等待读取数据…</div>
+
+  <div id="summary" class="summary"></div>
+  <div id="people" class="list"></div>
+</div>
+
+<script>
+const GOOGLE_CSV_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTbOCZcv9Se6AkJ4NTo9_B5HvD4eJDAFu1bzknrNfFVKKYRIMvMwCAwO4Y-A58F2TbSK2jX6eDvBCOZ/pub?output=csv"
+);
+
+function parseCSV(text){
+  const rows = [];
+  let row = [], val = "", inQuotes = false;
+  for(let i = 0; i < text.length; i++){
+    const c = text[i];
+    const next = text[i + 1];
+    if(c === '"'){
+      if(inQuotes && next === '"'){
+        val += '"';
+        i++;
+      }else{
+        inQuotes = !inQuotes;
+      }
+    }else if(c === ',' && !inQuotes){
+      row.push(val);
+      val = "";
+    }else if((c === '\n' || c === '\r') && !inQuotes){
+      if(c === '\r' && next === '\n') i++;
+      row.push(val);
+      if(row.some(x => String(x).trim() !== "")) rows.push(row);
+      row = [];
+      val = "";
+    }else{
+      val += c;
+    }
+  }
+  row.push(val);
+  if(row.some(x => String(x).trim() !== "")) rows.push(row);
+  if(!rows.length) return [];
+  const header = rows[0].map(h => String(h).trim());
+  return rows.slice(1).map(r => {
+    const obj = {};
+    header.forEach((h, idx) => obj[h] = (r[idx] ?? "").trim());
+    return obj;
+  });
+}
+
+function num(v){
+  const n = Number(String(v || "0").replace(/,/g,""));
+  return Number.isFinite(n) ? n : 0;
+}
+
+function setStatus(msg){
+  document.getElementById("status").textContent = msg;
+}
+
+function render(data){
+  const totalNormal = data.reduce((s,r)=>s + num(r["普通贴数量"]), 0);
+  const totalHot = data.reduce((s,r)=>s + num(r["热点贴数量"]), 0);
+  const totalPoster = data.reduce((s,r)=>s + num(r["宣发图制作"]), 0);
+  const totalSearch = data.reduce((s,r)=>s + num(r["找资料"]), 0);
+
+  const summary = document.getElementById("summary");
+  summary.innerHTML = `
+    <div class="card"><div class="label">普通贴总数</div><div class="value">${totalNormal}</div><div class="small">全表汇总</div></div>
+    <div class="card"><div class="label">热点贴总数</div><div class="value">${totalHot}</div><div class="small">全表汇总</div></div>
+    <div class="card"><div class="label">宣发图总数</div><div class="value">${totalPoster}</div><div class="small">全表汇总</div></div>
+    <div class="card"><div class="label">找资料总数</div><div class="value">${totalSearch}</div><div class="small">全表汇总</div></div>
+  `;
+
+  const byName = {};
+  data.forEach(r => {
+    const name = r["姓名"] || "未填写姓名";
+    if(!byName[name]){
+      byName[name] = { normal:0, hot:0, poster:0, search:0, count:0 };
+    }
+    byName[name].normal += num(r["普通贴数量"]);
+    byName[name].hot += num(r["热点贴数量"]);
+    byName[name].poster += num(r["宣发图制作"]);
+    byName[name].search += num(r["找资料"]);
+    byName[name].count += 1;
+  });
+
+  const people = document.getElementById("people");
+  const names = Object.keys(byName);
+  people.innerHTML = names.map(name => {
+    const x = byName[name];
+    return `
+      <div class="person">
+        <h3>${name}</h3>
+        <div class="row"><span>记录天数</span><strong>${x.count}</strong></div>
+        <div class="row"><span>普通贴数量</span><strong>${x.normal}</strong></div>
+        <div class="row"><span>热点贴数量</span><strong>${x.hot}</strong></div>
+        <div class="row"><span>宣发图制作</span><strong>${x.poster}</strong></div>
+        <div class="row"><span>找资料</span><strong>${x.search}</strong></div>
+      </div>
+    `;
+  }).join("");
+}
+
+async function loadData(){
+  try{
+    setStatus("正在读取 Google 表格数据…");
+    const res = await fetch(GOOGLE_CSV_URL, { cache: "no-store" });
+    const text = await res.text();
+    if(!text || text.includes("<!DOCTYPE html") || text.includes("<html")){
+      throw new Error("返回内容不是CSV");
+    }
+    const rows = parseCSV(text);
+    if(!rows.length){
+      throw new Error("没有读到有效数据");
+    }
+    render(rows);
+    setStatus("读取成功，已显示最新 Google 表格数据。");
+  }catch(err){
+    console.error(err);
+    setStatus("读取失败。请检查 Google 表是否已发布为 CSV，或稍后重试。");
+  }
+}
+
+window.addEventListener("load", loadData);
+</script>
+</body>
+</html>

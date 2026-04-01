@@ -180,7 +180,21 @@
 }
 </style>
 
-</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>上传工作日报 CSV <input type="file" id="workFile" accept=".csv"></label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">更新到文件</button></div></div><div class="tip">字段：找资料、审帖数量、普通贴数量、热点贴数量、专辑更新、低质量文章处理、资料分发数量、宣发图制作、外链制作、广告更换、外宣数量。区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细会随着时间区间同步变化。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3>各工作内容结构占比</h3><div class="pie-wrap"><div class="pie" id="workPie"></div><div class="legend" id="workLegend"></div></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
+
+<style id="work-month-style">
+#workPage select{
+  width:100%;
+  background:#0f1730;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  font-size:16px;
+  outline:none;
+}
+</style>
+
+</head><body><div class="app"><div class="hero page-work"><div class="hero-left"><div class="avatar"><img src="__AVATAR__" alt="头像"></div><div><h1>WJ-运营三部一组组长-古明</h1><div class="sub">Advanced Cyber-Neon Metal · 自包含分享版</div></div></div><div class="header-right-slogan-container"><div class="slogan-line first-line"><span class="company-name dept-highlight">无极</span>革新，<span class="dept-name dept-highlight">三部</span>先行；</div><div class="slogan-line action-line">算力<span class="action-highlight">拉满</span>，酷酷<span class="action-highlight">猛干</span></div></div></div><div class="tabs"><button class="tab-btn active" data-page="workPage">1. 工作日报</button><button class="tab-btn dim" data-page="skillPage">2. AgentSkill 使用报告</button><button class="tab-btn dim" data-page="kpiPage">3. 工作成效面板</button></div><section class="page page-work active" id="workPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组-工作汇报</h2><div class="sub">WJ-运营三部一组-工作汇报</div></div></div></div><div class="toolbar"><label>上传工作日报 CSV <input type="file" id="workFile" accept=".csv"></label><label>月份 <select id="workMonthSelect"><option value="2026-03">3月</option><option value="2026-04">4月</option></select></label><label>开始日期 <input type="date" id="workStart"></label><label>结束日期 <input type="date" id="workEnd"></label><div class="button-row"><button id="workApply">按区间统计</button><button id="workReset">更新到文件</button></div></div><div class="tip">字段：找资料、审帖数量、普通贴数量、热点贴数量、专辑更新、低质量文章处理、资料分发数量、宣发图制作、外链制作、广告更换、外宣数量。区间汇总卡片、饼图、近x日工作趋势、所选日期/区间明细会随着时间区间同步变化。</div><div class="stats work-stats" id="workStats"></div><div class="work-grid"><div class="card"><div class="week"><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div><div>日</div></div><div class="calendar" id="workCalendar"></div></div><div class="card"><h3 id="workTitle">所选日期/区间明细</h3><div class="list" id="workDetails"></div></div></div><div class="grid2"><div class="card"><h3>各工作内容结构占比</h3><div class="pie-wrap"><div class="pie" id="workPie"></div><div class="legend" id="workLegend"></div></div></div><div class="card"><h3 id="workTrendTitle">近x日工作趋势</h3><svg id="workTrendChart" viewBox="0 0 760 300"></svg></div></div></section><section class="page page-skill" id="skillPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">AgentSkill 使用报告</div></div></div></div><div class="toolbar"><label>上传 Skill CSV <input type="file" id="skillFile" accept=".csv"></label><label>开始日期 <input type="date" id="skillStart"></label><label>结束日期 <input type="date" id="skillEnd"></label><button id="skillApply">按时间区间筛选</button></div><div class="tip">已内置本地 CSV：agent_skill_report_2026-03-23_03-30.csv，后续可上传新文件覆盖。</div><div class="stats" id="skillStats"></div><div class="skill-grid"><div class="card"><h3>使用占比</h3><div class="legend" id="skillLegend"></div></div><div class="card"><h3>明细</h3><table class="table" id="skillTable"></table></div></div></section><section class="page page-kpi" id="kpiPage"><div class="head"><div class="title-wrap"><div class="page-avatar"><img src="__AVATAR__" alt="头像"></div><div><h2>WJ-运营三部一组</h2><div class="sub">产品数据内容</div></div></div></div><div class="toolbar kpi-toolbar"><label>上传 KPI CSV <input type="file" id="kpiFile" accept=".csv"></label><label>开始日期 <input type="date" id="kpiStart"></label><label>结束日期 <input type="date" id="kpiEnd"></label><button id="kpiApply">按区间统计</button></div><div class="tip">工作成效面板字段：日活、老用户日活总新增、总充值、新增充值、老用户充值充值人数、新充人数、老充人数、充值单数、新充单数、老充单数、订单付款层次留、3留、7留、向其他内部产品导量、内部导流充值。</div><div class="stats" id="kpiStats"></div><div class="kpi-grid"><div class="card"><h3>作者排行榜</h3><div class="ranking" id="kpiRanking"></div></div><div class="card"><h3>作者明细表</h3><table class="table" id="kpiTable"></table></div></div>
 <div class="kpi-day-board">
   <div class="kpi-day-shell">
     <div class="card kpi-day-card">
@@ -1091,6 +1105,156 @@ const state={work:INIT_WORK,workSelected:INIT_WORK[INIT_WORK.length-1].日期,wo
       console.error(e);
       setLoadingState(false);
     }
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  const WORK_KEYS = ['普通贴数量','热点贴数量','宣发图制作','找资料','审帖数量','专辑更新','低质量文章处理','资料分发数量','外链制作','广告更换','外宣数量'];
+
+  function monthRange(ym){
+    const [y,m] = ym.split('-').map(Number);
+    const last = new Date(y, m, 0).getDate();
+    return {
+      start: `${y}-${String(m).padStart(2,'0')}-01`,
+      end: `${y}-${String(m).padStart(2,'0')}-${String(last).padStart(2,'0')}`
+    };
+  }
+
+  function sameMonth(date, ym){
+    return String(date || '').slice(0,7) === ym;
+  }
+
+  function groupDayRows(rows){
+    const map = {};
+    rows.forEach(r => {
+      const d = r.日期;
+      if(!d) return;
+      if(!map[d]){
+        map[d] = {日期:d};
+        WORK_KEYS.forEach(k => map[d][k] = 0);
+      }
+      WORK_KEYS.forEach(k => map[d][k] += Number(r[k] || 0));
+    });
+    return map;
+  }
+
+  function buildMonthCalendarRows(ym){
+    const range = monthRange(ym);
+    const [y,m] = ym.split('-').map(Number);
+    const last = new Date(y, m, 0).getDate();
+    const grouped = groupDayRows((state.work || []).filter(r => sameMonth(r.日期, ym)));
+    const out = [];
+    for(let d=1; d<=last; d++){
+      const ds = `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      const row = grouped[ds] || {日期:ds};
+      WORK_KEYS.forEach(k => { if(row[k] == null) row[k] = 0; });
+      out.push(row);
+    }
+    return {range, rows: out};
+  }
+
+  function applyMonth(ym, keepSelected){
+    state.workMonth = ym;
+    const info = buildMonthCalendarRows(ym);
+    state.workRange.start = info.range.start;
+    state.workRange.end = info.range.end;
+    if(!keepSelected || !sameMonth(state.workSelected, ym)){
+      state.workSelected = info.range.end;
+    }
+    if(byId('workStart')) byId('workStart').value = state.workRange.start;
+    if(byId('workEnd')) byId('workEnd').value = state.workRange.end;
+    if(byId('workMonthSelect')) byId('workMonthSelect').value = ym;
+    renderWork();
+  }
+
+  function renderWorkOverride(){
+    const rows = filteredWork();
+    const ym = state.workMonth || ((state.workSelected && String(state.workSelected).slice(0,7)) || '2026-03');
+    const monthData = buildMonthCalendarRows(ym);
+    const monthRows = monthData.rows;
+    const totals = {};
+    WORK_KEYS.forEach(k => totals[k] = rows.reduce((n,x)=>n+Number(x[k]||0),0));
+
+    noData(false);
+
+    byId('workStats').innerHTML = WORK_KEYS.map(k =>
+      '<div class="stat"><div class="stat-label">'+k+'</div><div class="stat-value">'+fmt(totals[k])+'</div><div class="stat-sub">所选区间汇总</div></div>'
+    ).join('');
+
+    byId('workCalendar').innerHTML = monthRows.map(x =>
+      '<div class="day '+(x.日期===state.workSelected?'active':'')+'" data-date="'+x.日期+'"><div class="n">'+x.日期.slice(8)+'</div><div class="m">热 '+(x['热点贴数量']||0)+'<br>普 '+(x['普通贴数量']||0)+'</div></div>'
+    ).join('');
+
+    document.querySelectorAll('#workCalendar .day[data-date]').forEach(el => el.onclick = () => {
+      const d = el.dataset.date;
+      state.workSelected = d;
+      state.workRange.start = d;
+      state.workRange.end = d;
+      if(byId('workStart')) byId('workStart').value = d;
+      if(byId('workEnd')) byId('workEnd').value = d;
+      renderWork();
+    });
+
+    byId('workTitle').textContent = '所选日期/区间明细 · ' + dateText(state.workRange.start) + ' 至 ' + dateText(state.workRange.end);
+    byId('workDetails').innerHTML = WORK_KEYS.map(k => '<div class="row"><span>'+k+'</span><strong>'+fmt(totals[k])+'</strong></div>').join('');
+
+    const totalAll = WORK_KEYS.reduce((n,k)=>n+totals[k],0);
+    let start = 0;
+    const colors = ['var(--red)','var(--blue)','var(--green)','#ffcc75','#c08fff','#7ee787','#ffa657','#79c0ff','#d2a8ff','#f85149','#56d364'];
+    const parts = [];
+    if(totalAll > 0){
+      byId('workPie').style.background = 'conic-gradient(' + WORK_KEYS.map((k,i)=>{
+        const pct = (totals[k]/totalAll)*100;
+        const end = start + pct;
+        parts.push({label:k,pct:pct,start:start,end:end,color:colors[i%colors.length]});
+        const s = colors[i%colors.length]+' '+start+'% '+end+'%';
+        start = end;
+        return s;
+      }).join(',') + ')';
+      byId('workPie').innerHTML = '<svg viewBox="0 0 180 180">' + parts.filter(part=>part.pct>=6).map(part=>{
+        const mid=(part.start+part.end)/100*Math.PI*2-Math.PI/2;
+        const x=90+Math.cos(mid)*54;
+        const y=90+Math.sin(mid)*54;
+        return '<text x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" text-anchor="middle" dominant-baseline="middle" font-size="10" font-weight="800" fill="#fff">'+part.pct.toFixed(0)+'%</text>';
+      }).join('') + '</svg>';
+    }else{
+      byId('workPie').style.background = 'rgba(255,255,255,.04)';
+      byId('workPie').innerHTML = '';
+    }
+    byId('workLegend').innerHTML = WORK_KEYS.map((k,i)=>'<div><span class="dot" style="background:'+colors[i%colors.length]+'"></span><span>'+k+' · '+fmt(totals[k])+'</span></div>').join('');
+
+    const fullRange = monthData.rows.filter(x => (!state.workRange.start || x.日期 >= state.workRange.start) && (!state.workRange.end || x.日期 <= state.workRange.end));
+    const diff = Math.max(1, fullRange.length);
+    byId('workTrendTitle').textContent='近'+diff+'日工作趋势';
+    const svg=byId('workTrendChart');const w=760,h=300,p=36;
+    const totalsByDay=fullRange.map(x=>({date:x.日期,total:WORK_KEYS.reduce((n,k)=>n+Number(x[k]||0),0)}));
+    const max=Math.max.apply(null,totalsByDay.map(x=>x.total).concat([1]));
+    const bw=Math.max(10,(w-p*2)/Math.max(totalsByDay.length,1)-8);
+    const step=(w-p*2)/Math.max(totalsByDay.length,1);
+    const bars=totalsByDay.map((x,i)=>{
+      const xPos=p+i*step+4;const barH=(x.total/max)*(h-p*2);const y=h-p-barH;const label=x.date.replace(/-/g,'');const chars=label.split('');
+      return '<rect x="'+xPos+'" y="'+y+'" width="'+bw+'" height="'+barH+'" rx="8" fill="url(#barGrad)" opacity=".82"></rect><text x="'+(xPos+bw/2)+'" y="'+(h-88)+'" text-anchor="middle" font-size="11" fill="#888">'+chars.map(function(ch,idx){return '<tspan x="'+(xPos+bw/2)+'" dy="'+(idx===0?0:12)+'">'+ch+'</tspan>';}).join('')+'</text>';
+    }).join('');
+    const path=totalsByDay.map((x,i)=>{const xPos=p+i*step+bw/2+4;const y=h-p-(x.total/max)*(h-p*2);return (i?'L':'M')+xPos+','+y;}).join(' ');
+    svg.innerHTML='<defs><linearGradient id="barGrad" x1="0" x2="1"><stop offset="0%" stop-color="#ff6f91"/><stop offset="100%" stop-color="#5fb6ff"/></linearGradient></defs><path d="'+path+'" fill="none" stroke="#67f0b1" stroke-width="4"></path>'+bars;
+  }
+
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      window.renderWork = renderWorkOverride;
+      const sel = byId('workMonthSelect');
+      if(sel && !sel.dataset.boundMonth){
+        sel.dataset.boundMonth = '1';
+        sel.onchange = function(){
+          applyMonth(this.value, false);
+        };
+      }
+      if(!state.workMonth) state.workMonth = '2026-03';
+      applyMonth(state.workMonth, true);
+    }, 1200);
   });
 })();
 </script>
